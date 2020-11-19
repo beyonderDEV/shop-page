@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+        <aside>
+            <app-accordion>
+                <app-accordion-item title="Manufacturer">
+                    <div *ngFor="let brand of itemBrands">
+                        <input type="checkbox" [(ngModel)]="brand.selected" /> {{brand.name}}
+                    </div>
+                </app-accordion-item>
+            </app-accordion>
+
+            <app-accordion>
+                <app-accordion-item title="CPU">
+                    <div *ngFor="let cpu of itemCPUs">
+                        <input type="checkbox" [(ngModel)]="cpu.selected" /> {{cpu.name}}
+                    </div>
+                </app-accordion-item>
+            </app-accordion>
+
+            <app-accordion>
+                <app-accordion-item title="RAM">
+                    <div *ngFor="let ram of itemRAM">
+                        <input type="checkbox" [(ngModel)]="ram.selected" /> {{ram.name}}
+                    </div>
+                </app-accordion-item>
+            </app-accordion>
+
+            <app-accordion>
+                <app-accordion-item title="Screen Size">
+                    <div *ngFor="let screen of itemScreenSize">
+                        <input type="checkbox" [(ngModel)]="screen.selected" /> {{screen.name}}
+                    </div>
+                </app-accordion-item>
+            </app-accordion>
+        </aside>
+
+        <main class="main">
+            <div class="wrapper">
+                 <div class="card" *ngFor="let laptop of allItems |
+                                          brandFilter: selectedItemBrands |
+                                          cpuFilter: selectedItemCPUs |
+                                          ramFilter: selectedItemRAMs |
+                                          screenSizeFilter: selectedItemScreenSize |
+                                          paginate : { itemsPerPage: 8, currentPage: page, totalItems: count }">
+                    <div class="card__img">
+                        <a href="#"> <img src="http://placehold.it/270x255" alt="laptopImage"></a>
+                    </div>
+                    <div class="card__content">
+                        <div class="title">
+                            {{laptop.productName}}
+                        </div>
+                        <div class="purchase">
+                            <div class="price">
+                                {{laptop.price}}$
+                            </div>
+                            <button class="addToCart">Add to cart</button>
+                        </div>
+                        <div class="isInStock">
+                            <span>In stock</span>
+                        </div>
+                        <div class="info">
+                            <span>Screen: {{laptop.screen}} </span><br>
+                            <span>CPU: {{laptop.cpu}} </span><br>
+                            <span>Storage: {{laptop.storage}} </span><br>
+                            <span>RAM: {{laptop.ram}} </span><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-wrapper">
+                <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onDataChange($event)">
+                 </pagination-controls>
+            </div>
+
+        </main>
+    </div>
+</div>

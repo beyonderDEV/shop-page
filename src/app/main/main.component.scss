@@ -1,0 +1,92 @@
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main block */
+
+.main {
+  width: 1260px;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 270px;
+  display: inline-block;
+  background-color: white;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 2%;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(10px);
+    height: auto;
+  }
+  &:hover .info {
+    display: block;
+  }
+}
+
+.card__image {
+  border-radius: 2%;
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.card__content {
+  padding: 15px;
+}
+
+.title {
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.purchase {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.addToCart {
+  background-color: #049cbb;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.isInStock {
+  color: #0ca6c5;
+}
+
+.info {
+  padding-top: 15px;
+}
+
+/* Pagination contols */
+.control-wrapper {
+  text-align: center;
+  margin-right: 120px;
+}
